@@ -9,7 +9,7 @@ Windows 64bit
 Autori
 ------
 
-Nazev tymu
+Black Coconuts
 - xbarto92 Jan Bartošek
 - xodehn08 Tomáš Odehnal
 - xsopfp00 Petr Šopf
