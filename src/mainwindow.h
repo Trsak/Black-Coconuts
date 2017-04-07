@@ -29,6 +29,18 @@ private slots:
     void on_buttonEight_clicked();
     void on_buttonNine_clicked();
 
+    void on_buttonDot_clicked();
+
+    void on_buttonPercentage_clicked();
+
+    void on_buttonReset_clicked();
+
+    void on_buttonUndo_clicked();
+
+    void on_buttonLeftBar_clicked();
+
+    void on_buttonRightBar_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString myQString;

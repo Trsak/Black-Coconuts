@@ -81,3 +81,41 @@ void MainWindow::on_buttonNine_clicked()
     myQString = (myQString+"9");
     ui->textBrowser->setText(myQString);
 }
+
+void MainWindow::on_buttonDot_clicked()
+{
+    myQString = (myQString+".");
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonPercentage_clicked()
+{
+    myQString = (myQString+"%");
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonReset_clicked()
+{
+    myQString = ("");
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonUndo_clicked()
+{
+    if (myQString.size() > 0){
+        myQString.resize (myQString.size() - 1);
+    }
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonLeftBar_clicked()
+{
+    myQString = (myQString+"(");
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonRightBar_clicked()
+{
+    myQString = (myQString+")");
+    ui->textBrowser->setText(myQString);
+}
