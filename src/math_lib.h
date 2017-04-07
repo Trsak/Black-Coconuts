@@ -2,7 +2,7 @@
  * @file math_lib.h
  * @author Tomas Odehnal xodehn08
  * @brief Math library that implements basic mathematical functions
- * Math library implements basic arithmetic operations (+,-,*,/), factorial, nth root of number (n == number),
+ * Math library implements basic arithmetic operations (+,-,*,/), factorial, nth root of number (n is natural number),
  * basic binary operations, power with natural exponent.
  */
 
