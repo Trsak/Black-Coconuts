@@ -9,8 +9,6 @@
 #ifndef BLACK_COCONUTS_MATH_LIB_H
 #define BLACK_COCONUTS_MATH_LIB_H
 
-#endif //BLACK_COCONUTS_MATH_LIB_H
-
 #include <cmath>
 #include <limits>
 #include <string>
@@ -133,3 +131,5 @@ public:
      */
     static string bin_not(string operand);
 };
+
+#endif //BLACK_COCONUTS_MATH_LIB_H
