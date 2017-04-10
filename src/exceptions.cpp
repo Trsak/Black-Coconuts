@@ -3,10 +3,12 @@
  * @author Tomas Odehnal xodehn08
  */
 
-#include <exception>
 
-class DivideByZeroException: public exception {
-    virtual const char* what() const throw() {
+using namespace std;
+
+class DivideByZeroException: public exception{
+public:
+    const char* what() const throw() override  {
         return "Cannot divide by zero!";
     }
 };
