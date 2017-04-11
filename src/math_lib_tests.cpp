@@ -26,35 +26,35 @@ protected:
 };
 // SUM TESTS
 TEST_F(Math_lib_test, sum_normal) {
-    EXPECT_EQ(math_lib->sum(5.4,6.25), 11.65);
-    EXPECT_EQ(math_lib->sum(-20.4, -4.21), -24.61);
-    EXPECT_EQ(math_lib->sum(-5, 5), 0);
+    EXPECT_DOUBLE_EQ(math_lib->sum(5.4,6.25), 11.65);
+    EXPECT_DOUBLE_EQ(math_lib->sum(-20.4, -4.21), -24.61);
+    EXPECT_DOUBLE_EQ(math_lib->sum(-5, 5), 0);
 }
 
 TEST_F(Math_lib_test, sum_overflow) {
     EXPECT_TRUE(isinf(math_lib->sum(numeric_limits<double>::max(),numeric_limits<double>::max())));
-    EXPECT_TRUE(isinf(math_lib->sum(-numeric_limits<double>::min(),-numeric_limits<double>::min())));
+    EXPECT_TRUE(isinf(math_lib->sum(-numeric_limits<double>::max(),-numeric_limits<double>::max())));
 }
 
 // SUB TESTS
 TEST_F(Math_lib_test, sub_normal) {
-    EXPECT_EQ(math_lib->sub(5.4,6.25), -1.15);
-    EXPECT_EQ(math_lib->sub(-20.4, -4.21), -16.39);
-    EXPECT_EQ(math_lib->sub(5, 5), 0);
-    EXPECT_EQ(math_lib->sub(10, 2.4), 7.6);
+    EXPECT_DOUBLE_EQ(math_lib->sub(5.4,6.25), -0.85);
+    EXPECT_DOUBLE_EQ(math_lib->sub(-20.4, -4.21), -16.19);
+    EXPECT_DOUBLE_EQ(math_lib->sub(5, 5), 0);
+    EXPECT_DOUBLE_EQ(math_lib->sub(10, 2.4), 7.6);
 }
 
 TEST_F(Math_lib_test, sub_overflow) {
-    EXPECT_TRUE(isinf(math_lib->sub(numeric_limits<double>::min(),numeric_limits<double>::min())));
+    EXPECT_TRUE(isinf(math_lib->sub(numeric_limits<double>::max(),-numeric_limits<double>::max())));
     EXPECT_TRUE(isinf(math_lib->sub(-numeric_limits<double>::max(),numeric_limits<double>::max())));
 }
 
 // MUL TESTS
 TEST_F(Math_lib_test, mul_normal) {
-    EXPECT_EQ(math_lib->mul(2.1, 5), 10.5);
-    EXPECT_EQ(math_lib->mul(-10.5, 5.5), -57.75);
-    EXPECT_EQ(math_lib->mul(5, 0), 0);
-    EXPECT_EQ(math_lib->mul(10.874, 1), 10.874);
+    EXPECT_DOUBLE_EQ(math_lib->mul(2.1, 5), 10.5);
+    EXPECT_DOUBLE_EQ(math_lib->mul(-10.5, 5.5), -57.75);
+    EXPECT_DOUBLE_EQ(math_lib->mul(5, 0), 0);
+    EXPECT_DOUBLE_EQ(math_lib->mul(10.874, 1), 10.874);
 }
 
 TEST_F(Math_lib_test, mul_overflow) {
@@ -65,10 +65,10 @@ TEST_F(Math_lib_test, mul_overflow) {
 
 // DIV TESTS
 TEST_F(Math_lib_test, div_normal) {
-    EXPECT_EQ(math_lib->div(50.2, 2.0), 25.1);
-    EXPECT_EQ(math_lib->div(4.14, -0.1), -41.4);
-    EXPECT_EQ(math_lib->div(0.25, 0.4), 0.625);
-    EXPECT_EQ(math_lib->div(0, 15.12), 0);
+    EXPECT_DOUBLE_EQ(math_lib->div(50.2, 2.0), 25.1);
+    EXPECT_DOUBLE_EQ(math_lib->div(4.14, -0.1), -41.4);
+    EXPECT_DOUBLE_EQ(math_lib->div(0.25, 0.4), 0.625);
+    EXPECT_DOUBLE_EQ(math_lib->div(0, 15.12), 0);
 }
 
 TEST_F(Math_lib_test, div_overflow) {
