@@ -5,22 +5,26 @@
 
 #include "math_lib.h"
 #include <string>
+#include "exceptions.cpp"
 
 
 double Math_lib::sum(double operand1, double operand2) {
-
+    return operand1 + operand2;
 }
 
 double Math_lib::sub(double operand1, double operand2){
-
+    return operand1 - operand2;
 }
 
 double Math_lib::mul(double operand1, double operand2) {
-
+    return operand1 * operand2;
 }
 
 double Math_lib::div(double operand1, double operand2) {
-
+    if(operand2 == 0.0) {
+        throw DivideByZeroException();
+    }
+    return operand1 / operand2;
 }
 
 double Math_lib::natural_power(double operand, int exp) {
