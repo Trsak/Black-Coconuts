@@ -74,13 +74,29 @@ TEST_F(Math_lib_test, div_normal) {
 TEST_F(Math_lib_test, div_overflow) {
     EXPECT_TRUE(isinf(math_lib->div(numeric_limits<double>::max(),numeric_limits<double>::min())));
     EXPECT_TRUE(isnan(math_lib->div(numeric_limits<double>::infinity(), numeric_limits<double>::infinity())));
-    try {
-        math_lib->div(10.0, 0);
-        FAIL();
-    } catch( DivideByZeroException& err) {
-        ASSERT_STREQ("Cannot divide by zero!", err.what());
-    }
+    ASSERT_THROW(math_lib->div(10.0, 0), DivideByZeroException);
 }
+
+
+TEST_F(Math_lib_test, natural_power) {
+    EXPECT_DOUBLE_EQ(math_lib->natural_power(10.4, 3), 1124.864);
+    EXPECT_DOUBLE_EQ(math_lib->natural_power(-2.0, 2), 4.0);
+    EXPECT_DOUBLE_EQ(math_lib->natural_power(1204, 0), 1);
+    ASSERT_THROW(math_lib->natural_power(4.5, -2), invalid_argument);
+    EXPECT_TRUE(isnan(math_lib->natural_power(0, 0)));
+}
+
+TEST_F(Math_lib_test, general_sqrt) {
+    //TODO: Make tests
+}
+
+TEST_F(Math_lib_test, factorial) {
+    EXPECT_EQ(math_lib->factorial(0), 1);
+    EXPECT_EQ(math_lib->factorial(5), 120);
+    ASSERT_THROW(math_lib->factorial(21), overflow_error);
+    ASSERT_THROW(math_lib->factorial(-5), invalid_argument);
+}
+
 
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest( &argc, argv );
