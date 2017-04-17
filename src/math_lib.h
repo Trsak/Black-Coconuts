@@ -12,6 +12,7 @@
 #include <cmath>
 #include <limits>
 #include <string>
+#include <stdexcept>
 
 using namespace std;
 
@@ -48,6 +49,7 @@ public:
      * @param operand1 Divident from which is divided operand2 divided.
      * @param operand2 Divisor which is divided from operand1.
      * @return Returns result of division.
+     * @throw DivideByZeroException When operand2 is equal to 0.
      */
     static double div(double operand1, double operand2);
 
@@ -55,8 +57,8 @@ public:
      * @brief Makes operand to the power of exp and return result.
      * @param operand Base of power.
      * @param exp Natural exponent.
-     * @param[in] exp Must be greater than 0.
-     * @return Returns result of power.s
+     * @return Returns result of power or NaN if operand and exp are equal to .
+     * @throw invalid_argument When exp si smaller than 0.
      */
     static double natural_power(double operand, int exp);
 
@@ -71,9 +73,11 @@ public:
     /**
      * @brief Makes factorial from n and return result.
      * @param n The base of factorial.
-     * @return Returns result of factorial or inf.
+     * @return Returns result of factorial.
+     * @throw invalid_argument When n is smaller than 0.
+     * @throw overflow_error When unsigned long long can't hold the result.
      */
-    static long factorial(int n);
+    static unsigned long long factorial(int n);
 
     /**
      * @brief Makes OR operation with every bit (character) and return result.
