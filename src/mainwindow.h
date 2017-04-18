@@ -48,6 +48,8 @@ private slots:
     void on_buttonMultiply_clicked();
     void on_buttonPlus_clicked();
 
+    void on_buttonSettings_clicked();
+
 private:
     Ui::MainWindow *ui;
     QString myQString;

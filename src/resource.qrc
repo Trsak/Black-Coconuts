@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/project">
+        <file>Images/tool.png</file>
+    </qresource>
+</RCC>

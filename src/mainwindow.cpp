@@ -1,5 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include "optionwindow.h"
 bool dot = true;
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -19,9 +20,6 @@ MainWindow::MainWindow(QWidget *parent) :
     QString myQString = ui->textBrowser->toPlainText();
 
     countBar();
-/*
-    ui->buttonSettings->setIcon(QIcon("./Images/tool.png"));
-    ui->buttonSettings->setIconSize(QSize(8,8));*/
 
     connect(ui->horizontalScrollBar,SIGNAL(valueChanged(int)),this ,SLOT(slide()));
 }
@@ -383,4 +381,11 @@ void MainWindow::on_buttonPlus_clicked()
     myQString = (myQString+"+");
     ui->textBrowser->setText(myQString);
     disableButton();
+}
+
+void MainWindow::on_buttonSettings_clicked()
+{
+    OptionWindow optionwindow;
+    optionwindow.setModal(true);
+    optionwindow.exec();
 }
