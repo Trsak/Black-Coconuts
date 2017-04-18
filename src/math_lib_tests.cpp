@@ -83,11 +83,14 @@ TEST_F(Math_lib_test, natural_power) {
     EXPECT_DOUBLE_EQ(math_lib->natural_power(-2.0, 2), 4.0);
     EXPECT_DOUBLE_EQ(math_lib->natural_power(1204, 0), 1);
     ASSERT_THROW(math_lib->natural_power(4.5, -2), invalid_argument);
-    EXPECT_TRUE(isnan(math_lib->natural_power(0, 0)));
+    EXPECT_DOUBLE_EQ(math_lib->natural_power(0, 0), 1); // Because pow(0, 0) == 1
 }
 
 TEST_F(Math_lib_test, general_sqrt) {
-    //TODO: Make tests
+    ASSERT_NEAR(math_lib->general_sqrt(20, 0.01), 1.030410558, 0.0001);
+    ASSERT_NEAR(math_lib->general_sqrt(2000000, 0.0001), 1.001451919, 0.0001);
+    ASSERT_NEAR(math_lib->general_sqrt(21456, 0.5), 146.478667389, 0.0001);
+    EXPECT_TRUE(isnan(math_lib->general_sqrt(-5, 0.5)));
 }
 
 TEST_F(Math_lib_test, factorial) {
