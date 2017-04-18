@@ -134,6 +134,29 @@ public:
      * @return Returns result of NOT operation.
      */
     static string bin_not(string operand);
+
+private:
+    /**
+     * Calculate an exponential function with general base (x).
+     * This function using function general logarithm.
+     *
+     * NOTE: This function is used from IZP from second project and is my work (xodehn08).
+     * @param x General base of exponential function.
+     * @param y Exponent.
+     * @param n Number of iterations to make.
+     * @return Return the result of exponential function.
+     */
+    static double general_pow(double x, double y, unsigned int n);
+
+    /**
+     * Calculate a natural logarithm using continual fractions.
+     *
+     * NOTE: This function is used from IZP from second project and is my work (xodehn08).
+     * @param x Number from which is calculated the logarithm.
+     * @param n Number of iterations to make.
+     * @return Return the result of general logarithm.
+     */
+    static double cfrac_log(double x, unsigned int n);
 };
 
 #endif //BLACK_COCONUTS_MATH_LIB_H
