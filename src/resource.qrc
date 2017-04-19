@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/project">
-        <file>Images/tool.png</file>
+        <file>Images/b.png</file>
+        <file>Images/d.png</file>
     </qresource>
 </RCC>

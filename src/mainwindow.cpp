@@ -408,7 +408,7 @@ void MainWindow::on_buttonPI_clicked()
     piMultiply();
     QChar last = getChar(-1);
     if (last.isDigit()){
-        myQString = (myQString+"*pi");
+        myQString = (myQString+"*"+0x03A0);
     }
     else{
         myQString = (myQString+"pi");
@@ -464,14 +464,14 @@ void MainWindow::on_buttonSettings_clicked()
     myQString = ("");
     ui->textBrowser->setText(myQString);
     if (ui->mainWindow->isVisible()){
-        ui->buttonSettings->setText("B");
+        ui->buttonSettings->setIcon(QIcon(":/project/Images/b.png"));
         ui->buttonEnter_2->setEnabled(false);
         disableButton_2();
         dot_2=true;
         ui->mainWindow->hide();
         ui->binaryWindow->show();
     }else{
-        ui->buttonSettings->setText("D");
+        ui->buttonSettings->setIcon(QIcon(":/project/Images/d.png"));
         ui->buttonEnter->setEnabled(false);
         disableButton();
         dot=true;
