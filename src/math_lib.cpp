@@ -6,6 +6,9 @@
 #include "math_lib.h"
 #include <string>
 #include "exceptions.cpp"
+#include <bitset>
+
+const int MAX_LENGTH_OF_STRING = 32;
 
 
 double Math_lib::sum(double operand1, double operand2) {
@@ -61,31 +64,135 @@ unsigned long long Math_lib::factorial(int n) {
 }
 
 string Math_lib::bin_or(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = first_bits | second_bits;
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_and(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = first_bits & second_bits;
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_nor(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = ~(first_bits | second_bits);
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_nand(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = ~(first_bits & second_bits);
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_xor(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = first_bits ^ second_bits;
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_xnor(string first, string second) {
+    if(first.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    if(second.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("First number is too long (max. 32).");
+    }
+    int length = 0;
+    if(first.length() > second.length()) {
+        length = first.length();
+    } else {
+        length = second.length();
+    }
 
+    std::bitset<MAX_LENGTH_OF_STRING> first_bits(first), second_bits(second);
+    std::bitset<MAX_LENGTH_OF_STRING> result = ~(first_bits ^ second_bits);
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 string Math_lib::bin_not(string operand) {
+    if(operand.length() > MAX_LENGTH_OF_STRING) {
+        throw invalid_argument("Number is too long (max. 32).");
+    }
+    int length = operand.length();
 
+    std::bitset<MAX_LENGTH_OF_STRING> operand_bits(operand);
+    std::bitset<MAX_LENGTH_OF_STRING> result = ~operand_bits;
+
+    return result.to_string().substr(MAX_LENGTH_OF_STRING - length, MAX_LENGTH_OF_STRING);
 }
 
 double Math_lib::general_pow(double x, double y, unsigned int n) {
