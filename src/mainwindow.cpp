@@ -1,27 +1,33 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
-#include "optionwindow.h"
 bool dot = true;
+bool dot_2 = true;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
     this->setFixedSize(500,380);
+    ui->binaryWindow->hide();
+    ui->mainWindow->show();
     ui->frameSecond->hide();
     ui->frameMain->show();
+    ui->frameSecond_2->hide();
+    ui->frameMain_2->show();
     disableButton();
+    disableButton_2();
     ui->buttonRound->setEnabled(false);
     ui->buttonANS->setEnabled(false);
-    ui->buttonEnter->setEnabled(false);
+    ui->buttonRound_2->setEnabled(false);
+    ui->buttonANS_2->setEnabled(false);
 
     QString myQString = ui->textBrowser->toPlainText();
 
     countBar();
 
     connect(ui->horizontalScrollBar,SIGNAL(valueChanged(int)),this ,SLOT(slide()));
+    connect(ui->horizontalScrollBar_2,SIGNAL(valueChanged(int)),this ,SLOT(slide_2()));
 }
 
 MainWindow::~MainWindow()
@@ -52,8 +58,7 @@ void MainWindow::afterRightBar()
     }
 }
 
-void MainWindow::countBar(bool rightBar)
-{
+bool MainWindow::counter(){
     int left = 0;
     int right = 0;
 
@@ -62,9 +67,16 @@ void MainWindow::countBar(bool rightBar)
         else if (myQString[i] == ')') right++;
     }
 
-
-    QChar last = getChar(-1);
     if (left > right){
+        return true;
+    }
+    return false;
+}
+
+void MainWindow::countBar(bool rightBar)
+{
+    QChar last = getChar(-1);
+    if (counter()){
         if (last.isDigit() || last == ')' || last == 'i'){
             ui->buttonRightBar->setEnabled(true);
             ui->buttonEnter->setEnabled(false);
@@ -76,8 +88,24 @@ void MainWindow::countBar(bool rightBar)
         ui->buttonEnter->setEnabled(true);
 }
 
+void MainWindow::countBar_2(bool rightBar)
+{
+    QChar last = getChar(-1);
+    if (counter()){
+        if (last.isDigit() || last == ')'){
+            ui->buttonRightBar_2->setEnabled(true);
+            ui->buttonEnter_2->setEnabled(false);
+            return;
+        }
+    }
+    ui->buttonRightBar_2->setEnabled(false);
+    if (rightBar)
+        ui->buttonEnter_2->setEnabled(true);
+}
+
 void MainWindow::disableButton()
 {
+    ui->buttonEnter->setEnabled(false);
     ui->buttonMultiply->setEnabled(false);
     ui->buttonDivision->setEnabled(false);
     ui->buttonPercentage->setEnabled(false);
@@ -86,6 +114,23 @@ void MainWindow::disableButton()
     ui->buttonIndex->setEnabled(false);
     ui->buttonFactorial->setEnabled(false);
     dot = true;
+}
+
+void MainWindow::disableButton_2()
+{
+    ui->buttonEnter_2->setEnabled(false);
+    ui->buttonMultiply_2->setEnabled(false);
+    ui->buttonDivision_2->setEnabled(false);
+    ui->buttonDot_2->setEnabled(false);
+    ui->buttonPlus_2->setEnabled(false);
+    ui->buttonNOT_2->setEnabled(false);
+    ui->buttonOR_2->setEnabled(false);
+    ui->buttonNOR_2->setEnabled(false);
+    ui->buttonAND_2->setEnabled(false);
+    ui->buttonNAND_2->setEnabled(false);
+    ui->buttonXOR_2->setEnabled(false);
+    ui->buttonXNOR_2->setEnabled(false);
+    dot_2 = true;
 }
 
 void MainWindow::piMultiply()
@@ -98,7 +143,6 @@ void MainWindow::piMultiply()
 
 void MainWindow::enableButton()
 {
-    ui->buttonEnter->setEnabled(true);
     ui->buttonMultiply->setEnabled(true);
     ui->buttonDivision->setEnabled(true);
     ui->buttonPercentage->setEnabled(true);
@@ -115,6 +159,28 @@ void MainWindow::enableButton()
     dot = false;
     countBar();
 }
+
+void MainWindow::enableButton_2()
+{
+    ui->buttonEnter_2->setEnabled(true);
+    ui->buttonMultiply_2->setEnabled(true);
+    ui->buttonDivision_2->setEnabled(true);
+    ui->buttonPlus_2->setEnabled(true);
+    ui->buttonMinus_2->setEnabled(true);
+    ui->buttonLeftBar_2->setEnabled(true);
+    ui->buttonNOT_2->setEnabled(true);
+    ui->buttonOR_2->setEnabled(true);
+    ui->buttonNOR_2->setEnabled(true);
+    ui->buttonAND_2->setEnabled(true);
+    ui->buttonNAND_2->setEnabled(true);
+    ui->buttonXOR_2->setEnabled(true);
+    ui->buttonXNOR_2->setEnabled(true);
+    if (dot_2){
+        ui->buttonDot->setEnabled(true);
+    }
+    dot_2 = false;
+    countBar_2();
+}
 void MainWindow::slide(){
     if (ui->horizontalScrollBar->value() == 0){
         ui->frameSecond->hide();
@@ -122,6 +188,16 @@ void MainWindow::slide(){
     }else{
         ui->frameSecond->show();
         ui->frameMain->hide();
+    }
+}
+
+void MainWindow::slide_2(){
+    if (ui->horizontalScrollBar_2->value() == 0){
+        ui->frameSecond_2->hide();
+        ui->frameMain_2->show();
+    }else{
+        ui->frameSecond_2->show();
+        ui->frameMain_2->hide();
     }
 }
 
@@ -385,7 +461,228 @@ void MainWindow::on_buttonPlus_clicked()
 
 void MainWindow::on_buttonSettings_clicked()
 {
-    OptionWindow optionwindow;
-    optionwindow.setModal(true);
-    optionwindow.exec();
+    myQString = ("");
+    ui->textBrowser->setText(myQString);
+    if (ui->mainWindow->isVisible()){
+        ui->buttonSettings->setText("B");
+        ui->buttonEnter_2->setEnabled(false);
+        disableButton_2();
+        dot_2=true;
+        ui->mainWindow->hide();
+        ui->binaryWindow->show();
+    }else{
+        ui->buttonSettings->setText("D");
+        ui->buttonEnter->setEnabled(false);
+        disableButton();
+        dot=true;
+        ui->mainWindow->show();
+        ui->binaryWindow->hide();
+    }
+}
+
+void MainWindow::on_buttonReset_2_clicked()
+{
+    myQString = ("");
+    ui->textBrowser->setText(myQString);
+    ui->buttonEnter_2->setEnabled(false);
+    disableButton_2();
+    countBar_2();
+}
+
+void MainWindow::on_buttonUndo_2_clicked()
+{
+    QChar preLast_3 = getChar(-4);
+    QChar preLast_2 = getChar(-3);
+    QChar preLast = getChar(-2);
+    QChar last = getChar(-1);
+    if (myQString.size() > 1){
+        if (last == 'T'){
+            myQString.resize (myQString.size() - 3);
+        }
+
+        else if (last == 'D'){
+            if (preLast_3 == 'N'){
+                myQString.resize (myQString.size() - 4);
+            }else{
+                myQString.resize (myQString.size() - 3);
+            }
+        }
+
+        else if (last == 'R'){
+            if (preLast_2 == 'X'){
+                myQString.resize (myQString.size() - 3);
+            }else if (preLast_2 == 'N'){
+                if (preLast_3 == 'X'){
+                    myQString.resize (myQString.size() - 4);
+                }else{
+                    myQString.resize (myQString.size() - 3);
+                }
+            }else{
+                myQString.resize (myQString.size() - 2);
+            }
+        }
+        else{
+            myQString.resize (myQString.size() - 1);
+        }
+        if (preLast.isDigit()){
+            enableButton_2();
+        }
+        else{
+            disableButton_2();
+            dot_2 = false;
+        }
+    }
+    else if (myQString.size() == 1){
+        myQString.resize (myQString.size() - 1);
+        enableButton_2();
+        disableButton_2();
+        dot_2 = false;
+        ui->buttonEnter_2->setEnabled(false);
+    }
+    else{
+        disableButton_2();
+        dot_2 = false;
+    }
+
+    if (last == '.'){
+        ui->buttonDot_2->setEnabled(true);
+    }
+    countBar_2();
+    ui->textBrowser->setText(myQString);
+}
+
+void MainWindow::on_buttonZero_2_clicked()
+{
+    afterRightBar();
+    myQString = (myQString+"0");
+    ui->textBrowser->setText(myQString);
+    enableButton_2();
+}
+
+void MainWindow::on_buttonOne_2_clicked()
+{
+    afterRightBar();
+    myQString = (myQString+"1");
+    ui->textBrowser->setText(myQString);
+    enableButton_2();
+}
+
+void MainWindow::on_buttonDot_2_clicked()
+{
+    myQString = (myQString+".");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+    dot_2 = false;
+    ui->buttonPlus_2->setEnabled(false);
+    ui->buttonMinus_2->setEnabled(false);
+    ui->buttonLeftBar_2->setEnabled(false);
+    ui->buttonMinus_2->setEnabled(false);
+    ui->buttonLeftBar_2->setEnabled(false);
+    ui->buttonEnter_2->setEnabled(false);
+}
+
+void MainWindow::on_buttonDivision_2_clicked()
+{
+    myQString = (myQString+"/");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonMinus_2_clicked()
+{
+    QChar last = getChar(-1);
+    if (last.isDigit() || last.isNull() || last == '('){
+        myQString = (myQString+"-");
+    }
+    else{
+        myQString = (myQString+"(-");
+    }
+    ui->textBrowser->setText(myQString);
+    countBar_2();
+    disableButton_2();
+}
+
+void MainWindow::on_buttonMultiply_2_clicked()
+{
+    myQString = (myQString+"*");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonNOT_2_clicked()
+{
+    myQString = (myQString+" NOT ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonPlus_2_clicked()
+{
+    myQString = (myQString+"+");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonAND_2_clicked()
+{
+    myQString = (myQString+" AND ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonNAND_2_clicked()
+{
+    myQString = (myQString+" NAND ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonNOR_2_clicked()
+{
+    myQString = (myQString+" NOR ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonOR_2_clicked()
+{
+    myQString = (myQString+" OR ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonXNOR_2_clicked()
+{
+    myQString = (myQString+" XNOR ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonXOR_2_clicked()
+{
+    myQString = (myQString+" XOR ");
+    ui->textBrowser->setText(myQString);
+    disableButton_2();
+}
+
+void MainWindow::on_buttonLeftBar_2_clicked()
+{
+    QChar last = getChar(-1);
+    if (last.isDigit() || last == ')'){
+        myQString = (myQString+"*(");
+    }
+    else{
+        myQString = (myQString+"(");
+    }
+    ui->textBrowser->setText(myQString);
+    ui->buttonEnter_2->setEnabled(false);
+    countBar_2();
+    disableButton_2();
+}
+
+void MainWindow::on_buttonRightBar_2_clicked()
+{
+    myQString = (myQString+")");
+    ui->textBrowser->setText(myQString);
+    countBar_2(true);
 }
