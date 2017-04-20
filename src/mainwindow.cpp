@@ -583,21 +583,21 @@ void MainWindow::on_buttonRightBar_b_clicked()
     moveScrollBar();
 }
 
-//Po zmáčknutí = v binárním módu
-void MainWindow::on_buttonEnter_b_clicked()
+//TODO Po zmáčknutí = v normální módu
+void MainWindow::on_buttonEnter_clicked()
 {
-    ui->buttonRound_b->setEnabled(true);
-    ui->buttonANS_b->setEnabled(true);
+    ui->buttonRound->setEnabled(true);
+    ui->buttonANS->setEnabled(true);
 
     myQString = "VYSLEDEK";
     ui->textEdit->setText(myQString);
 }
 
-//Po zmáčknutí = v normální módu
-void MainWindow::on_buttonEnter_clicked()
+//TODO Po zmáčknutí = v binárním módu
+void MainWindow::on_buttonEnter_b_clicked()
 {
-    ui->buttonRound->setEnabled(true);
-    ui->buttonANS->setEnabled(true);
+    ui->buttonRound_b->setEnabled(true);
+    ui->buttonANS_b->setEnabled(true);
 
     myQString = "VYSLEDEK";
     ui->textEdit->setText(myQString);
