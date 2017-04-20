@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/project">
+        <file>Images/b.png</file>
+        <file>Images/d.png</file>
+        <file>Stylesheet/darkorange.stylesheet.qss</file>
+    </qresource>
+</RCC>
