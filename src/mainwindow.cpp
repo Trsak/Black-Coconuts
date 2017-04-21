@@ -167,13 +167,9 @@ void MainWindow::operatorClicked() {
     } else if (sender == 'F') {
         myQString = (myQString + "!");
     } else if (sender == 'S') {
-        if (!getChar(-1).isDigit()) {
-            myQString = (myQString + "2sqrt(");
-        } else {
-            myQString = (myQString + "sqrt(");
-        }
+        myQString = (myQString + "sqrt(x,y)");
     } else if (sender == 'I') {
-        myQString = (myQString + "exp(");
+        myQString = (myQString + "pow(x,y)");
     } else if (sender == 'Q') {
         myQString = (myQString + ".");
     } else if (sender == 'W') {
@@ -380,6 +376,8 @@ void MainWindow::on_buttonEnter_clicked() {
         p.SetExpr(ui->textEdit->toPlainText().toUtf8().constData());
         p.DefineConst("pi", 3.14159265358);
         double result = p.Eval();
+
+        result = Math_lib::general_sqrt(2, 2);
 
         myQString = QString::number(result);
     }

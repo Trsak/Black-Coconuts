@@ -39,8 +39,8 @@
 namespace mu
 {
   /** \brief Mathematical expressions parser.
-    
-    Standard implementation of the mathematical expressions parser. 
+
+    Standard implementation of the mathematical expressions parser.
     Can be used as a reference implementation for subclassing the parser.
 
     <small>
@@ -60,8 +60,8 @@ namespace mu
     virtual void InitOprt();
     virtual void OnDetectVar(string_type *pExpr, int &nStart, int &nEnd);
 
-    value_type Diff(value_type *a_Var, 
-                    value_type a_fPos, 
+    value_type Diff(value_type *a_Var,
+                    value_type a_fPos,
                     value_type a_fEpsilon = 0) const;
 
   protected:
@@ -91,8 +91,10 @@ namespace mu
     static value_type  Ln(value_type);    // Logarithm Base e (natural logarithm)
     // misc
     static value_type  Exp(value_type);
+    static value_type  Pow(value_type, value_type);
     static value_type  Abs(value_type);
     static value_type  Sqrt(value_type);
+      static value_type  Root(value_type, value_type);
     static value_type  Rint(value_type);
     static value_type  Sign(value_type);
 
