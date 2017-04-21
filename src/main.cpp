@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
         }
 
     MainWindow mw;
+    mw.setWindowIcon(QIcon(":/project/Images/favicon.png"));
     mw.show();
 
     return program.exec();
