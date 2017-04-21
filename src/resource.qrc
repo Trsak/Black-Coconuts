@@ -2,6 +2,8 @@
     <qresource prefix="/project">
         <file>Images/b.png</file>
         <file>Images/d.png</file>
+        <file>Images/favicon.png</file>
+        <file>Images/favicon.ico</file>
         <file>Stylesheet/darkorange.stylesheet.qss</file>
     </qresource>
 </RCC>
