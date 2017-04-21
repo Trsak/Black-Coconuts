@@ -93,9 +93,9 @@ namespace mu
     static value_type  Exp(value_type);
     static value_type  Pow(value_type, value_type);
     static value_type  Abs(value_type);
-    static value_type  Sqrt(value_type);
-      static value_type  Root(value_type, value_type);
+    static value_type  Sqrt(value_type, value_type);
     static value_type  Rint(value_type);
+    static value_type  Factorial(value_type);
     static value_type  Sign(value_type);
 
     // Prefix operators

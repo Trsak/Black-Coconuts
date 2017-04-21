@@ -104,11 +104,11 @@ namespace mu
     static T Log10(T v) { return log10(v); }         // Logarithm base 10
     static T Exp(T v)   { return exp(v);   }
     static T Abs(T v)   { return (v>=0) ? v : -v; }
-    static T Sqrt(T v)  { return sqrt(v); }
     static T Rint(T v)  { return floor(v + (T)0.5); }
     static T Sign(T v)  { return (T)((v<0) ? -1 : (v>0) ? 1 : 0); }
+    static T Factorial(T v)  { return Math_lib::factorial(v); }
     static T Pow(T v1, T v2) { return Math_lib::natural_power(v1, v2); }
-    static T Root(T v1, T v2)  { return Math_lib::general_sqrt(v1, v2); }
+    static T Sqrt(T v1, T v2)  { return Math_lib::general_sqrt(v1, 1/v2); }
   };
 }
 

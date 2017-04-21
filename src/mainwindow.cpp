@@ -165,7 +165,7 @@ void MainWindow::operatorClicked() {
     } else if (sender == 'D') {
         myQString = (myQString + "/");
     } else if (sender == 'F') {
-        myQString = (myQString + "!");
+        myQString = (myQString + "factorial(x)");
     } else if (sender == 'S') {
         myQString = (myQString + "sqrt(x,y)");
     } else if (sender == 'I') {
@@ -369,15 +369,13 @@ void MainWindow::on_buttonRightBar_b_clicked() {
     ui->textEdit->setText(myQString);
 }
 
-//TODO Po zmáčknutí = v normální módu
+
 void MainWindow::on_buttonEnter_clicked() {
     try {
         mu::Parser p;
         p.SetExpr(ui->textEdit->toPlainText().toUtf8().constData());
         p.DefineConst("pi", 3.14159265358);
         double result = p.Eval();
-
-        result = Math_lib::general_sqrt(2, 2);
 
         myQString = QString::number(result);
     }
@@ -388,8 +386,9 @@ void MainWindow::on_buttonEnter_clicked() {
     ui->textEdit->setText(myQString);
 }
 
-//TODO Po zmáčknutí = v binárním módu
+
 void MainWindow::on_buttonEnter_b_clicked() {
-    myQString = "VYSLEDEK";
+    myQString = "Coming soon";
+
     ui->textEdit->setText(myQString);
 }

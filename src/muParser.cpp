@@ -106,24 +106,16 @@ namespace mu
   //  misc
   value_type Parser::Exp(value_type v)  { return MathImpl<value_type>::Exp(v);  }
   value_type Parser::Pow(value_type v1, value_type v2)  { return MathImpl<value_type>::Pow(v1, v2);  }
-  value_type Parser::Abs(value_type v)  { return MathImpl<value_type>::Abs(v);  }
-  value_type Parser::Sqrt(value_type v)
-  {
-    #ifdef MUP_MATH_EXCEPTIONS
-        if (v<0)
-          throw ParserError(ecDOMAIN_ERROR, _T("sqrt"));
-    #endif
-
-    return MathImpl<value_type>::Sqrt(v);
-  }
-    value_type Parser::Root(value_type v1, value_type v2)
+    value_type Parser::Abs(value_type v)  { return MathImpl<value_type>::Abs(v);  }
+    value_type Parser::Factorial(value_type v){ return MathImpl<value_type>::Factorial(v);  }
+    value_type Parser::Sqrt(value_type v1, value_type v2)
     {
     #ifdef MUP_MATH_EXCEPTIONS
             if (v1<0)
               throw ParserError(ecDOMAIN_ERROR, _T("sqrt"));
     #endif
 
-        return MathImpl<value_type>::Root(v1, v2);
+        return MathImpl<value_type>::Sqrt(v1, v2);
     }
   value_type Parser::Rint(value_type v) { return MathImpl<value_type>::Rint(v); }
   value_type Parser::Sign(value_type v) { return MathImpl<value_type>::Sign(v); }
@@ -309,8 +301,8 @@ namespace mu
       // misc
       DefineFun(_T("exp"), Exp);
       DefineFun(_T("pow"), Pow);
-        DefineFun(_T("sqrt"), Sqrt);
-        DefineFun(_T("root"), Root);
+      DefineFun(_T("sqrt"), Sqrt);
+      DefineFun(_T("factorial"), Factorial);
       DefineFun(_T("sign"), Sign);
       DefineFun(_T("rint"), Rint);
       DefineFun(_T("abs"), Abs);
