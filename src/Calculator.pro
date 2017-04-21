@@ -22,11 +22,35 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    math_lib.cpp \
+    muParser.cpp \
+    muParserBase.cpp \
+    muParserByteCode.cpp \
+    muParserCallback.cpp \
+    muParserDLL.cpp \
+    muParserError.cpp \
+    muParserInt.cpp \
+    muParserTest.cpp \
+    muParserTokenReader.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    math_lib.h \
+    muParser.h \
+    muParserBase.h \
+    muParserByteCode.h \
+    muParserCallback.h \
+    muParserDef.h \
+    muParserDLL.h \
+    muParserError.h \
+    muParserFixes.h \
+    muParserInt.h \
+    muParserStack.h \
+    muParserTemplateMagic.h \
+    muParserTest.h \
+    muParserToken.h \
+    muParserTokenReader.h
 
 FORMS    += mainwindow.ui
 
