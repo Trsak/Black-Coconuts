@@ -65,7 +65,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->buttonQDot->setShortcut(Qt::Key_Period);
     connect(ui->buttonWReset, SIGNAL(clicked(bool)), this, SLOT(operatorClicked()));
     ui->buttonWReset->setShortcut(Qt::Key_C);
-    connect(ui->buttonWReset_b, SIGNAL(clicked(bool)), this, SLOT(operatorClicked()));
+    connect(ui->buttonWReset_b, SIGNAL(clicked(bool)), this, SLOT(operatorClicked_b()));
     ui->buttonWReset_b->setShortcut(Qt::Key_C);
     connect(ui->buttonOR_b, SIGNAL(clicked(bool)), this, SLOT(operatorClicked_b()));
     connect(ui->buttonNOR_b, SIGNAL(clicked(bool)), this, SLOT(operatorClicked_b()));
@@ -259,7 +259,15 @@ void MainWindow::operatorClicked_b() {
     QString sender = QObject::sender()->objectName();
     sender = sender.mid(6);
     sender.chop(2);
-    myQString = (myQString + " " + sender + " ");
+
+    QString sender2 = QObject::sender()->objectName();
+    sender2 = sender2[6];
+
+    if (sender2 != 'W') {
+        myQString = (myQString + " " + sender + " ");
+    } else {
+        myQString = "";
+    }
     ui->textEdit->setText(myQString);
 }
 
@@ -268,6 +276,7 @@ void MainWindow::restoreContent() {
 }
 
 void MainWindow::on_buttonEnter_clicked() {
+    restoreContent();
     try {
         mu::Parser p;
         p.SetExpr(ui->textEdit->toPlainText().toUtf8().constData());
@@ -279,11 +288,15 @@ void MainWindow::on_buttonEnter_clicked() {
     catch (mu::Parser::exception_type &e) {
         myQString = QString::fromStdString(e.GetMsg());
     }
+    catch (std::overflow_error &e) {
+        myQString = "ERROR: Overflow!";
+    }
 
     ui->textEdit->setText(myQString);
 }
 
 void MainWindow::on_buttonEnter_b_clicked() {
+    restoreContent();
     binaryParser p(ui->textEdit->toPlainText().toUtf8().constData());
     ui->textEdit->setText(QString::fromStdString(p.getResult()));
 }
