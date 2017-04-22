@@ -1,0 +1,31 @@
+=====Debugging=====
+
+Jako první jsem si za účelem debuggování vytvořil v matematické knihovně (math_lib.cpp) provizorní funkci main.
+
+int main(void) {
+    Math_lib::natural_power(2, 7);
+
+    return 0;
+}
+
+Pro debugging jsem si vybral metodu natural_power (mocniny s přirozeným exponentem), kterou volám s argumenty operand = 2 a exp = 7. Což je 2^7 = 128.
+
+Tento soubor (math_lib.cpp) jsem přeložil příkazem "c++ -g math_lib.cpp -o math_lib", pro správné dubuggování je potřeba volat s přepínačem "-g".
+Přímo pro debugging jsem použil nástroj gdb s přepínačem "-tui", který umožňuje náhled do kódu během debuggování.
+
+=====Vlastní debugging=====
+
+Hned po spuštění gdb jsem nastavil breakpoint na funkci main příkazem "break main" a spustil program pomocí "run".
+V gdb se pomocí "next" nebo "n" dostanu na další řádek.
+Pomocí "step" nebo "s" vstoupím do funkce, protože příkazem "next" se se volaná metoda pouze provede a dostal bych se až na řádek za metodou.
+
+Příkaz "step" vypíše i s jakými argumenty se metoda volá (v tomto případě operand=2, exp=7).
+
+Nejprve se kontroluje jestli se exp nerovná 0, pokud ano, tak výsledek metody je 1.
+Dále se kontroluje, jestli exp není záporné číslo, pokud ano, tak je vyvolána výjimka.
+Dále se nastaví proměnná, do které se ukládá výsledek.
+
+Následuje cyklus for, ve kterém probíhá vlastní výpočet. Průchod cyklem probíhá zase pomocí příkazu "next"
+Pomocí příkazu "print result" je možnost si průběžně vypisovat výsledek (mezivýsledky).
+
+Nakonec proběhlo 7 průchodů cyklem a výsledek je 128, což odpovídá očekávanému výsledku.
