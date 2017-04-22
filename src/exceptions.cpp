@@ -3,6 +3,7 @@
  * @author Tomas Odehnal xodehn08
  */
 
+#include <stdexcept>
 
 using namespace std;
 
