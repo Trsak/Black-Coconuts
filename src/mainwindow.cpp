@@ -288,6 +288,9 @@ void MainWindow::on_buttonEnter_clicked() {
     catch (mu::Parser::exception_type &e) {
         myQString = QString::fromStdString(e.GetMsg());
     }
+    catch (std::overflow_error &e) {
+        myQString = "ERROR: Overflow!";
+    }
 
     ui->textEdit->setText(myQString);
 }
