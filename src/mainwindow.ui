@@ -83,7 +83,10 @@
      <enum>QAbstractScrollArea::AdjustIgnored</enum>
     </property>
     <property name="lineWrapMode">
-     <enum>QTextEdit::NoWrap</enum>
+     <enum>QTextEdit::WidgetWidth</enum>
+    </property>
+    <property name="lineWrapColumnOrWidth">
+     <number>80</number>
     </property>
     <property name="readOnly">
      <bool>false</bool>
@@ -231,19 +234,6 @@ p, li { white-space: pre-wrap; }
       <string>&lt;-</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonANS">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>90</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ANS</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="button4">
      <property name="geometry">
       <rect>
@@ -337,11 +327,6 @@ p, li { white-space: pre-wrap; }
        <string>+</string>
       </property>
      </widget>
-     <zorder>buttonDivision</zorder>
-     <zorder>buttonKrat</zorder>
-     <zorder>buttonMinus</zorder>
-     <zorder>buttonPlus</zorder>
-     <zorder>frameSecond</zorder>
     </widget>
     <widget class="QPushButton" name="button0">
      <property name="geometry">
@@ -499,7 +484,6 @@ p, li { white-space: pre-wrap; }
     <zorder>buttonQDot</zorder>
     <zorder>button2</zorder>
     <zorder>buttonUndo</zorder>
-    <zorder>buttonANS</zorder>
     <zorder>button4</zorder>
     <zorder>buttonWReset</zorder>
     <zorder>frameMain</zorder>
@@ -517,9 +501,9 @@ p, li { white-space: pre-wrap; }
    <widget class="QFrame" name="binaryWindow">
     <property name="geometry">
      <rect>
-      <x>70</x>
+      <x>20</x>
       <y>120</y>
-      <width>381</width>
+      <width>471</width>
       <height>161</height>
      </rect>
     </property>
@@ -532,8 +516,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonEnter_b">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>115</y>
+       <x>180</x>
+       <y>130</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -546,7 +530,7 @@ p, li { white-space: pre-wrap; }
      <property name="geometry">
       <rect>
        <x>90</x>
-       <y>85</y>
+       <y>130</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -555,77 +539,23 @@ p, li { white-space: pre-wrap; }
       <string>1</string>
      </property>
     </widget>
-    <widget class="QScrollBar" name="horizontalScrollBar_b">
-     <property name="geometry">
-      <rect>
-       <x>210</x>
-       <y>138</y>
-       <width>160</width>
-       <height>15</height>
-      </rect>
-     </property>
-     <property name="maximum">
-      <number>1</number>
-     </property>
-     <property name="pageStep">
-      <number>1</number>
-     </property>
-     <property name="value">
-      <number>0</number>
-     </property>
-     <property name="sliderPosition">
-      <number>0</number>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Horizontal</enum>
-     </property>
-     <property name="invertedAppearance">
-      <bool>false</bool>
-     </property>
-    </widget>
-    <widget class="Line" name="line_b">
-     <property name="geometry">
-      <rect>
-       <x>190</x>
-       <y>0</y>
-       <width>3</width>
-       <height>160</height>
-      </rect>
-     </property>
-     <property name="orientation">
-      <enum>Qt::Vertical</enum>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonLeftBar_b">
-     <property name="geometry">
-      <rect>
-       <x>200</x>
-       <y>0</y>
-       <width>90</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>(</string>
-     </property>
-    </widget>
-    <widget class="QPushButton" name="buttonQDot_b">
+    <widget class="QPushButton" name="button0_b">
      <property name="geometry">
       <rect>
        <x>0</x>
-       <y>115</y>
+       <y>130</y>
        <width>90</width>
        <height>30</height>
       </rect>
      </property>
      <property name="text">
-      <string>.</string>
+      <string>0</string>
      </property>
     </widget>
     <widget class="QPushButton" name="buttonUndo_b">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>180</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -635,23 +565,10 @@ p, li { white-space: pre-wrap; }
       <string>&lt;-</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonANS_b">
-     <property name="geometry">
-      <rect>
-       <x>45</x>
-       <y>30</y>
-       <width>90</width>
-       <height>30</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string>ANS</string>
-     </property>
-    </widget>
     <widget class="QPushButton" name="buttonWReset_b">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>90</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -661,225 +578,102 @@ p, li { white-space: pre-wrap; }
       <string>C</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="button0_b">
+    <widget class="QPushButton" name="buttonNOR_b">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>85</y>
+       <x>380</x>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
      </property>
      <property name="text">
-      <string>0</string>
+      <string>NOR</string>
      </property>
     </widget>
-    <widget class="QPushButton" name="buttonRightBar_b">
+    <widget class="QPushButton" name="buttonNAND_b">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>100</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>NAND</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="buttonOR_b">
      <property name="geometry">
       <rect>
        <x>290</x>
-       <y>0</y>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
      </property>
      <property name="text">
-      <string>)</string>
+      <string>OR</string>
      </property>
     </widget>
-    <widget class="QFrame" name="frameMain_b">
+    <widget class="QPushButton" name="buttonAND_b">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>40</y>
-       <width>180</width>
-       <height>90</height>
+       <x>290</x>
+       <y>100</y>
+       <width>90</width>
+       <height>30</height>
       </rect>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+     <property name="text">
+      <string>AND</string>
      </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
-     </property>
-     <widget class="QPushButton" name="buttonDivision_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>/</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonKrat_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>*</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonNOT_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NOT</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonMinus_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>0</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>-</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonPlus_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>30</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>+</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonRound_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>60</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>RND</string>
-      </property>
-     </widget>
     </widget>
-    <widget class="QFrame" name="frameSecond_b">
+    <widget class="QPushButton" name="buttonXOR_b">
      <property name="geometry">
       <rect>
-       <x>200</x>
-       <y>40</y>
-       <width>181</width>
-       <height>90</height>
+       <x>290</x>
+       <y>130</y>
+       <width>90</width>
+       <height>30</height>
       </rect>
      </property>
-     <property name="frameShape">
-      <enum>QFrame::StyledPanel</enum>
+     <property name="text">
+      <string>XOR</string>
      </property>
-     <property name="frameShadow">
-      <enum>QFrame::Raised</enum>
+    </widget>
+    <widget class="QPushButton" name="buttonXNOR_b">
+     <property name="geometry">
+      <rect>
+       <x>380</x>
+       <y>130</y>
+       <width>90</width>
+       <height>30</height>
+      </rect>
      </property>
-     <widget class="QPushButton" name="buttonOR_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>OR</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonAND_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>30</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>AND</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonNAND_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>30</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NAND</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonNOR_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>0</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>NOR</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonXNOR_b">
-      <property name="geometry">
-       <rect>
-        <x>90</x>
-        <y>60</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>XNOR</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="buttonXOR_b">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>60</y>
-        <width>90</width>
-        <height>30</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>XOR</string>
-      </property>
-     </widget>
+     <property name="text">
+      <string>XNOR</string>
+     </property>
+    </widget>
+    <widget class="Line" name="line_2">
+     <property name="geometry">
+      <rect>
+       <x>280</x>
+       <y>0</y>
+       <width>3</width>
+       <height>160</height>
+      </rect>
+     </property>
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
     </widget>
    </widget>
+   <zorder>mainWindow</zorder>
    <zorder>binaryWindow</zorder>
    <zorder>buttonSettings</zorder>
    <zorder>textEdit</zorder>
-   <zorder>mainWindow</zorder>
   </widget>
   <widget class="QStatusBar" name="statusBar"/>
  </widget>
