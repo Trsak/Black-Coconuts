@@ -25,6 +25,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += main.cpp\
         mainwindow.cpp \
     math_lib.cpp \
+    binaryParser.cpp \
     muParser.cpp \
     muParserBase.cpp \
     muParserByteCode.cpp \
@@ -37,6 +38,7 @@ SOURCES += main.cpp\
 
 HEADERS  += mainwindow.h \
     math_lib.h \
+    binaryParser.h \
     muParser.h \
     muParserBase.h \
     muParserByteCode.h \
