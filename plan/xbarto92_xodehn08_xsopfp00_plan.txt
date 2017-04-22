@@ -1,0 +1,57 @@
+Stanovené termíny:
+-do 18. 3. 
+    -vytvoření struktury repoziáře
+    
+-do 20. 3.
+    -vytvoření hlavičkového souboru pro matematickou knihovnu (xodehn08), aby se mohlo začít pracovat na rozhraní (xsopfp00)
+    -začít pracovat na Makefile
+    
+-do 26. 3.
+    -vytvoření testů pro matematickou knihovnu
+    
+-do 10. 4.
+    -implementace matematické knihovny
+    -vytvoření GUI (základní)
+    -vytvoření rozhraní
+    
+-do 16. 4.
+    -Vytvoření komepletního GUI
+    -kompletace celého projektu
+
+-do 20. 4.
+    -profiling
+    -kompletní Makefile
+    -instalátor programu
+    -dokumentace
+    
+-do 24. 4.	konfigurace repozitáře
+		-dokončení drobností (rozdíly mezi plánem a skutč�ností, snímek )
+    -mockup další verze kalkulačky
+
+-do  2. 5.	soubor problemy.txt
+		kontrola práce jednotlivých členů
+    
+    
+
+Přidělení úkolů na projektu jednotlivým řešitelům
+-xbarto92: GUI, uživatelská dokumentace
+-xodehn08: TDD, Matematická knihovna, Makefile (ve spolupráci s ostatními)
+-xsopfp00: Profiling, Implementace mat. knihovny, Rozhraní
+-všichni: programová dokumentace (každý člen týmu bude komentovat svůj kód, tak aby šla vygenerovat dokumentace pomocí Doxygenu),
+          
+
+Zvolená komunikační kanály a pravidla
+-komunikační kanál: Slack.com (portál, který umožňuje vícečlennou komunikaci a tvorbu témat)
+-komunikační pravidla: 
+    -na Slack.com se vytvoří kanály, které se budou týkat určité části projektu (např. gui, matlib,...), každý člen týmu bude každý den minimálně 2x kontrolovat Slack.com
+    -popřípadě použít Facebook (výjimečně) pro menší dotazy
+
+Zvolený systém pro správu verzí: Git
+Hosting: Github (ivs.kontrola@gmail.com přidán ke kontrole repozitáře)
+         https://github.com/B4rtosek/Black-Coconuts
+
+Doplňující informace:
+    -commity se budou psát v angličtině
+    -kód bude v angličtině
+    -komentáře pro dokumentaci (Doxygen) se budou psát anglicky
+    -každý člen týmu bude mít v repozitáři svou větev (může si vytovořit i další), ve větvi master bude jen funkční kód
