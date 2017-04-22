@@ -98,7 +98,7 @@ void MainWindow::numberClicked() {
     QChar tmp = sender[6];
     piMultiply();
 
-    if (tmp == "P") {
+    if (tmp == 'P') {
         if (getChar(-1).isDigit()) {
             myQString = (myQString + "*pi");
         } else {
@@ -126,25 +126,25 @@ void MainWindow::operatorClicked() {
         myQString = (myQString + " ");
     }
 
-    if (sender == 'P') {
+    if (sender == "P") {
         myQString = (myQString + "+");
-    } else if (sender == 'M') {
+    } else if (sender == "M") {
         myQString = (myQString + "-");
-    } else if (sender == 'K') {
+    } else if (sender == "K") {
         myQString = (myQString + "*");
-    } else if (sender == 'D') {
+    } else if (sender == "D") {
         myQString = (myQString + "/");
-    } else if (sender == 'F') {
+    } else if (sender == "F") {
         myQString = (myQString + "factorial(x)");
-    } else if (sender == 'S') {
+    } else if (sender == "S") {
         myQString = (myQString + "sqrt(x,y)");
-    } else if (sender == 'I') {
+    } else if (sender == "I") {
         myQString = (myQString + "pow(x,y)");
-    } else if (sender == 'Q') {
+    } else if (sender == "Q") {
         myQString = (myQString + ".");
-    } else if (sender == 'W') {
+    } else if (sender == "W") {
         myQString = ("");
-    } else if (sender == 'L') {
+    } else if (sender == "L") {
         myQString = (myQString + "(");
     }
 
@@ -263,7 +263,7 @@ void MainWindow::operatorClicked_b() {
     QString sender2 = QObject::sender()->objectName();
     sender2 = sender2[6];
 
-    if (sender2 != 'W') {
+    if (sender2 != "W") {
         myQString = (myQString + " " + sender + " ");
     } else {
         myQString = "";
