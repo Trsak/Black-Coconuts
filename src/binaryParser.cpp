@@ -1,28 +1,29 @@
 #include <binaryParser.h>
 #include <math_lib.h>
-#include <algorithm>
+#include <string>
+#include <sstream>
+#include <vector>
+#include <iterator>
 
 binaryParser::binaryParser(std::string str) {
-    operationsN = split(str, operations, ' ');
+    operations = split(str, ' ');
 }
 
-unsigned int binaryParser::split(const std::string &txt, std::vector <std::string> &strs, char ch) {
-    unsigned int pos = txt.find(ch);
-    unsigned int initialPos = 0;
-    strs.clear();
 
-    // Decompose statement
-    while (pos != std::string::npos) {
-        strs.push_back(txt.substr(initialPos, pos - initialPos + 1));
-        initialPos = pos + 1;
-
-        pos = txt.find(ch, initialPos);
+template<typename Out>
+void binaryParser::split(const std::string &s, char delim, Out result) {
+    std::stringstream ss;
+    ss.str(s);
+    std::string item;
+    while (std::getline(ss, item, delim)) {
+        *(result++) = item;
     }
+}
 
-    // Add the last one
-    strs.push_back(txt.substr(initialPos, std::min(pos, txt.size()) - initialPos + 1));
-
-    return strs.size();
+std::vector<std::string> binaryParser::split(const std::string &s, char delim) {
+    std::vector<std::string> elems;
+    split(s, delim, std::back_inserter(elems));
+    return elems;
 }
 
 bool binaryParser::isBinaryNumber(std::string str) {
@@ -53,8 +54,18 @@ std::string binaryParser::doOperation(std::string op, std::string res, std::stri
     else if (op == "XNOR") return Math_lib::bin_xnor(res, num);
 }
 
+template<typename T, typename P>
+T binaryParser::remove_if(T beg, T end, P pred)
+{
+    T dest = beg;
+    for (T itr = beg;itr != end; ++itr)
+        if (!pred(*itr))
+            *(dest++) = *itr;
+    return dest;
+}
+
 std::string binaryParser::removeSpaces(std::string input) {
-    input.erase(std::remove_if(input.begin(), input.end(), ::isspace), input.end());
+    input.erase(remove_if(input.begin(), input.end(), ::isspace), input.end());
     return input;
 }
 

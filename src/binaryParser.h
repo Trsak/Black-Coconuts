@@ -21,7 +21,13 @@ public:
 
     std::string removeSpaces(std::string input);
 
-    unsigned int split(const std::string &txt, std::vector <std::string> &strs, char ch);
+    template<typename Out>
+    void split(const std::string &s, char delim, Out result);
+
+    template<typename T, typename P>
+    T remove_if(T beg, T end, P pred);
+
+    std::vector <std::string> split(const std::string &s, char delim);
 
     std::string getResult();
 };
