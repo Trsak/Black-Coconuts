@@ -1,10 +1,9 @@
 Prostredi
 ---------
 
-Ubuntu 32bit
-Ubuntu 64bit
-Windows 32bit
-Windows 64bit
+Ubuntu 64bit  
+Windows 32bit  
+Windows 64bit  
 
 Autori
 ------
