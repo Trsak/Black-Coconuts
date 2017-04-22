@@ -224,7 +224,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonUndo">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>90</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -250,7 +250,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonWReset">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>0</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -516,8 +516,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonEnter_b">
      <property name="geometry">
       <rect>
-       <x>180</x>
-       <y>130</y>
+       <x>135</x>
+       <y>100</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -529,8 +529,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="button1_b">
      <property name="geometry">
       <rect>
-       <x>90</x>
-       <y>130</y>
+       <x>135</x>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -542,8 +542,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="button0_b">
      <property name="geometry">
       <rect>
-       <x>0</x>
-       <y>130</y>
+       <x>45</x>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -555,7 +555,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonUndo_b">
      <property name="geometry">
       <rect>
-       <x>180</x>
+       <x>135</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -568,7 +568,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonWReset_b">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>45</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -581,8 +581,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonNOR_b">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>70</y>
+       <x>335</x>
+       <y>40</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -594,8 +594,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonNAND_b">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>100</y>
+       <x>335</x>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -607,8 +607,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonOR_b">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>70</y>
+       <x>245</x>
+       <y>40</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -620,8 +620,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonAND_b">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>100</y>
+       <x>245</x>
+       <y>70</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -633,8 +633,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonXOR_b">
      <property name="geometry">
       <rect>
-       <x>290</x>
-       <y>130</y>
+       <x>245</x>
+       <y>100</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -646,8 +646,8 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonXNOR_b">
      <property name="geometry">
       <rect>
-       <x>380</x>
-       <y>130</y>
+       <x>335</x>
+       <y>100</y>
        <width>90</width>
        <height>30</height>
       </rect>
@@ -659,10 +659,10 @@ p, li { white-space: pre-wrap; }
     <widget class="Line" name="line_2">
      <property name="geometry">
       <rect>
-       <x>280</x>
+       <x>235</x>
        <y>0</y>
        <width>3</width>
-       <height>160</height>
+       <height>130</height>
       </rect>
      </property>
      <property name="orientation">
