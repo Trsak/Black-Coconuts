@@ -224,7 +224,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonUndo">
      <property name="geometry">
       <rect>
-       <x>90</x>
+       <x>135</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
@@ -250,7 +250,7 @@ p, li { white-space: pre-wrap; }
     <widget class="QPushButton" name="buttonWReset">
      <property name="geometry">
       <rect>
-       <x>0</x>
+       <x>45</x>
        <y>0</y>
        <width>90</width>
        <height>30</height>
