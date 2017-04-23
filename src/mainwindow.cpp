@@ -1,3 +1,6 @@
+/**
+ * @file mainwindow.cpp
+ */
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "muParser.h"
@@ -86,12 +89,6 @@ MainWindow::~MainWindow() {
     delete ui;
 }
 
-/**
- *   @brief Call on number or PI button clicked
- *   @brief Saves the value of button to myQString and display
- *
- *   @return void
- */
 void MainWindow::numberClicked() {
     restoreContent();
     QString sender = QObject::sender()->objectName();
@@ -111,12 +108,6 @@ void MainWindow::numberClicked() {
     ui->textEdit->setText(myQString);
 }
 
-/**
- *   @brief Call on operator button clicked
- *   @brief Saves the value of button to myQString and display
- *
- *   @return void
- */
 void MainWindow::operatorClicked() {
     restoreContent();
     QString sender = QObject::sender()->objectName();
@@ -155,10 +146,6 @@ void MainWindow::operatorClicked() {
     ui->textEdit->setText(myQString);
 }
 
-/**
- *   @param position is an integer
- *   @return QChar that is on position of myQString
- */
 QChar MainWindow::getChar(int position) {
     QChar foundChar;
     if (myQString.length() < position * -1) {
@@ -168,11 +155,6 @@ QChar MainWindow::getChar(int position) {
     return myQString.at(help + position);
 }
 
-/**
- *   @brief Compares how many left anf right bars are in myQString
- *
- *   @return true if there are more left bars, false if there are equal or more right bars
- */
 bool MainWindow::counter() {
     int left = 0;
     int right = 0;
@@ -189,11 +171,6 @@ bool MainWindow::counter() {
     return false;
 }
 
-/**
- *   @brief Adds '*' symbol to myQString if need
- *
- *   @return void
- */
 void MainWindow::piMultiply() {
     QChar last = getChar(-1);
     if (last == 'i') {
@@ -201,12 +178,6 @@ void MainWindow::piMultiply() {
     }
 }
 
-/**
- *   @brief Cuts the last char in myQString (few last chars if pi, exp or sqrt was last)
- *   @brief Disable or enable buttons if need
- *
- *   @return void
- */
 void MainWindow::undoClicked() {
     restoreContent();
     if (myQString.size() > 0) {
@@ -216,22 +187,12 @@ void MainWindow::undoClicked() {
     ui->textEdit->setText(myQString);
 }
 
-/**
- *   @brief Adds ')' symbol to myQString and display
- *
- *   @return void
- */
 void MainWindow::on_buttonRightBar_clicked() {
     restoreContent();
     myQString = (myQString + ")");
     ui->textEdit->setText(myQString);
 }
 
-/**
- *   @brief Changes between normal and binary mode
- *
- *   @return void
- */
 void MainWindow::on_buttonSettings_clicked() {
     if (ui->mainWindow->isVisible()) {
         ui->buttonSettings->setIcon(QIcon(":/project/Images/b.png"));
@@ -248,12 +209,6 @@ void MainWindow::on_buttonSettings_clicked() {
     }
 }
 
-/**
- *   @brief Call on operator button clicked
- *   @brief Saves the value of button to myQString and display
- *
- *   @return void
- */
 void MainWindow::operatorClicked_b() {
     restoreContent();
     QString sender = QObject::sender()->objectName();

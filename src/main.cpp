@@ -1,3 +1,7 @@
+/**
+ * @file main.cpp
+ * @brief Main function for Qt
+ */
 #include "mainwindow.h"
 #include "qfile.h"
 #include "qtextstream.h"

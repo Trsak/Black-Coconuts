@@ -1,3 +1,7 @@
+/**
+ * @file binaryParser.h
+ * @author Petr Sopf (xsopfp00)
+ */
 #include <binaryParser.h>
 #include <math_lib.h>
 #include <string>
