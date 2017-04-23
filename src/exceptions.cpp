@@ -1,6 +1,7 @@
 /**
  * @file exceptions.cpp
  * @author Tomas Odehnal xodehn08
+ * @brief This file contains exceptions
  */
 
 #include <stdexcept>
@@ -13,3 +14,5 @@ public:
         return "Cannot divide by zero!";
     }
 };
+
+/*** End of file exceptions.cpp ***/

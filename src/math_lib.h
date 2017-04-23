@@ -159,4 +159,6 @@ private:
     static double cfrac_log(double x, unsigned int n);
 };
 
+/*** End of file math_lib.h ***/
+
 #endif //BLACK_COCONUTS_MATH_LIB_H
