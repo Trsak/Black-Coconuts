@@ -1,0 +1,2 @@
+Profiling jsem se rozhodl provést pomocí nástroje Callgring. Následnou analýzu jsem provedl pomocí KCachegrind.
+Z profilingu jasně plyne, že naprostou většinu času zabrala funkce pro odmocninu (general_sqrt). Její implementace není nejšťastnější, další optimalizace by se měla zaměřit tak právě na ni.
