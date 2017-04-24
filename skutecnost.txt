@@ -6,3 +6,7 @@ Dle původního plánu měl být program dostupný i pro 32bit Ubuntu. Bohužel 
 
 Problém s komunikačník kanálem:
 Původní domluva byla, že jako komunikační kanál budeme využívat Slack. Postupně jsme však téměr veškerou komunikaci vedli přes Facebook. Jelikož jsme pouze tříčlenný tým, tak s komunikací přes Facebook nebyl problém.
+
+Testy:
+Původně bylo v plánu, že se nejprve napíší testy pro matematickou knihovnu a teprve poté se knihovna implementuje.
+Nakonec se to dělalo tak, že se vytvořily testy pro pár funkcí a poté se funkce, pro které se vytvořily testy, implementovaly.
