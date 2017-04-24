@@ -14,6 +14,7 @@ ALLOW_UNICODE_NAMES    = NO
 OUTPUT_LANGUAGE        = English
 BRIEF_MEMBER_DESC      = YES
 REPEAT_BRIEF           = YES
+EXCLUDE                = ./googletest
 ABBREVIATE_BRIEF       = "The $name class" \
                          "The $name widget" \
                          "The $name file" \
