@@ -1,1 +1,8 @@
+Rozdíly v temrínech:
+Ze začátku se nám dařilo plnit termíny dle plánu. Postupem času se však z nedostatku času termíny musely posouvat, a to až o týden.
 
+Problém s Ubuntu 32bit:
+Dle původního plánu měl být program dostupný i pro 32bit Ubuntu. Bohužel jsme však došli k zjištění, že Qt přestalo 32bit Linux podporovat a na poslední dostupné verzi pro 32bit Ubuntu se program nepovedlo správně zobrazit.
+
+Problém s komunikačník kanálem:
+Původní domluva byla, že jako komunikační kanál budeme využívat Slack. Postupně jsme však téměr veškerou komunikaci vedli přes Facebook. Jelikož jsme pouze tříčlenný tým, tak s komunikací přes Facebook nebyl problém.
