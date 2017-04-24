@@ -1,3 +1,1 @@
-xbarto92 100 (GUI, Uživatelská dokumentace, Doxygen komentáře)
-xodehn08 100 (Matematická knihovna, Makefile, debugging, testy, Doxygen komentáře)
-xsopfp00 100 (Rozhraní, profiling, Doxygen komentáře, Doxyfile, Instalátor)
+
